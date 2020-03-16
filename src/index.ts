@@ -4,11 +4,7 @@ import * as fs from "fs";
 
 const jsonSchema = require("./schema.json");
 
-if (!fs.existsSync("lib")) {
-  fs.mkdirSync("lib");
-}
-
-const outputFilePath = path.resolve(__dirname, "../lib/index.d.ts");
+const outputFilePath = path.resolve(__dirname, "../index.d.ts");
 
 compile(jsonSchema, "OpenAPI", {
   bannerComment: "",
