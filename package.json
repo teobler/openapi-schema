@@ -2,12 +2,25 @@
   "name": "@api-integration/openapi-schema",
   "version": "0.0.1",
   "description": "openAPI schema interface for typescript.",
-  "main": "./lib/OpenAPI-v3.d.ts",
+  "main": "",
+  "files": [
+    "lib",
+    "src/index.ts",
+    "README.md"
+  ],
   "scripts": {
     "generate": "ts-node src/index.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teobler/openapi-schema.git"
+  },
   "author": "teobler",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teobler/openapi-schema/issues"
+  },
+  "homepage": "https://github.com/teobler/openapi-schema#readme",
   "devDependencies": {
     "json-schema-to-typescript": "^8.2.0",
     "ts-node": "^8.6.2",
