@@ -8,7 +8,7 @@ if (!fs.existsSync("lib")) {
   fs.mkdirSync("lib");
 }
 
-const outputFilePath = path.resolve(__dirname, "../lib/OpenAPI-v3.d.ts");
+const outputFilePath = path.resolve(__dirname, "../lib/index.d.ts");
 
 compile(jsonSchema, "OpenAPI", {
   bannerComment: "",
