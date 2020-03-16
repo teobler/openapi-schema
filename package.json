@@ -1,0 +1,16 @@
+{
+  "name": "@api-integration/openapi-schema",
+  "version": "0.0.1",
+  "description": "openAPI schema interface for typescript.",
+  "main": "index.js",
+  "scripts": {
+    "generate": "ts-node src/index.ts"
+  },
+  "author": "teobler",
+  "license": "ISC",
+  "devDependencies": {
+    "json-schema-to-typescript": "^8.2.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  }
+}
