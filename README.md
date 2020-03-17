@@ -8,12 +8,12 @@ this tool only for OpenAPI **v3.0.x** now
 
 ## install
 ```bash
-  npm install -D @api-integration/openapi-schema
+  npm install -D @openapi-integration/openapi-schema
 ```
 
 ## use
 ```javascript
-  import { Spec } from "@api-integration/openapi-schema";
+  import { Spec } from "@openapi-integration/openapi-schema";
 
   console.log(Spec);
 ```
