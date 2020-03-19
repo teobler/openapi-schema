@@ -1,8 +1,20 @@
-export type Parameter = ExampleXORExamples & SchemaXORContent & ParameterLocation;
-/**
- * Schema and content are mutually exclusive, at least one is required
- */
-export type SchemaXORContent = { [k: string]: any; };
+export type Parameter = ParameterLocation & {
+  name: string;
+  in: "path" | "query" | "header" | "cookie";
+  style?: string;
+  description?: string;
+  required?: boolean;
+  deprecated?: boolean;
+  allowEmptyValue?: boolean;
+  explode?: boolean;
+  allowReserved?: boolean;
+  schema?: Schema | Reference;
+  content?: {
+    [k: string]: MediaType;
+  };
+  example?: {};
+  examples?: { [k: string]: Example | Reference };
+};
 /**
  * Parameter location
  */
@@ -37,14 +49,14 @@ export interface Header {
   explode?: boolean;
   allowReserved?: boolean;
   schema?: Schema | Reference;
-  content?: { [k: string]: MediaType; };
+  content?: { [k: string]: MediaType };
   example?: {};
-  examples?: { [k: string]: Example | Reference; };
+  examples?: { [k: string]: Example | Reference };
 }
 export interface MediaType {
   schema: Schema | Reference;
   example?: {};
-  examples?: { [k: string]: Example | Reference; };
+  examples?: { [k: string]: Example | Reference };
   encoding?: Encoding;
 }
 export interface Encoding {
