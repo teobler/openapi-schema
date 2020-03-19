@@ -28,8 +28,32 @@ export type ParameterLocation =
       style?: "form";
       [k: string]: any;
     };
-export type MediaType = ExampleXORExamples;
-export type Header = ExampleXORExamples & SchemaXORContent;
+export interface Header {
+  description: string;
+  required?: boolean;
+  deprecated?: boolean;
+  allowEmptyValue?: boolean;
+  style?: "simple";
+  explode?: boolean;
+  allowReserved?: boolean;
+  schema?: Schema | Reference;
+  content?: { [k: string]: MediaType; };
+  example?: {};
+  examples?: { [k: string]: Example | Reference; };
+}
+export interface MediaType {
+  schema: Schema | Reference;
+  example?: {};
+  examples?: { [k: string]: Example | Reference; };
+  encoding?: Encoding;
+}
+export interface Encoding {
+  contentType: string;
+  headers?: Header;
+  style?: "form" | "spaceDelimited" | "pipeDelimited" | "deepObject";
+  explode?: boolean;
+  allowReserved?: boolean;
+}
 export type SecurityScheme =
   | APIKeySecurityScheme
   | HTTPSecurityScheme
@@ -173,11 +197,7 @@ export interface ExampleXORExamples {
   [k: string]: any;
 }
 export interface Reference {
-  /**
-   * This interface was referenced by `Reference`'s JSON-Schema definition
-   * via the `patternProperty` "^\$ref$".
-   */
-  [k: string]: string;
+  $ref: string;
 }
 /**
  * This interface was referenced by `PathItem`'s JSON-Schema definition
@@ -217,7 +237,7 @@ export interface RequestBody {
   [k: string]: any;
 }
 export interface Responses {
-  default?: Response | Reference;
+  [responseCode: string]: Response | Reference;
 }
 export interface Response {
   description: string;
