@@ -141,7 +141,20 @@ export interface Tag {
    */
   [k: string]: any;
 }
-export interface Paths {}
+export interface Paths {
+  [k: string]: Path;
+}
+export interface Path {
+  $ref?: string;
+  get?: Operation;
+  put?: Operation;
+  post?: Operation;
+  delete?: Operation;
+  options?: Operation;
+  head?: Operation;
+  patch?: Operation;
+  parameters?: Array<Parameter | Reference>;
+}
 /**
  * This interface was referenced by `Paths`'s JSON-Schema definition
  * via the `patternProperty` "^\/".
